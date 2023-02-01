@@ -17,7 +17,7 @@ const SearchBar = () => {
   }
 
   return (
-    <div className="app container text-center mb-4">
+    <div className="app container text-center  mt-2 mb-4">
       <div className="row">
         <div className="col-8 offset-2">
         <form onSubmit={handleFormSubmit}>

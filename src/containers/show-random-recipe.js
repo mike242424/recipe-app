@@ -8,7 +8,7 @@ const ShowRandomRecipe = () => {
       <div className="show-recipe row">
       {randomRecipeData && randomRecipeData.recipes.map((recipe) =>
       <div className=" card col-md-6  col-lg-4 p-2" key={recipe.id}>
-        {<img className="card-img-top" src={recipe.image} alt="recipe pic" />}
+        {recipe.image ? <img className="card-img-top" src={recipe.image} alt="recipe pic" /> : <span></span>}
         <div className="card-body">
           <h4 className="card-title">{recipe.title}</h4>
           <a style={{color: "green", textDecoration: 'none'}} href={recipe.sourceUrl}><strong>Recipe</strong></a>
