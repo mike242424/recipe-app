@@ -1,7 +1,7 @@
 import SearchBar from "../containers/search-bar";
 import ShowRandomRecipe from "../containers/show-random-recipe";
 import ShowRecipe from "../containers/show-recipe";
-
+import 'bootstrap/dist/css/bootstrap.css';
 import  { fetchRandomRecipe } from "../actions";
 
 import { useDispatch } from "react-redux";

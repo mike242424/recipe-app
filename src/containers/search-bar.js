@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import  { fetchRecipe } from "../actions";
+import 'bootstrap/dist/css/bootstrap.css';
+import { Container, Button, Form, Row, Col } from "react-bootstrap";
 
 const SearchBar = () => {
   const [foodItem, setFoodItem] = useState("");
@@ -17,28 +19,25 @@ const SearchBar = () => {
   }
 
   return (
-    <div className="app container text-center mb-4">
-      <div className="row">
-        <div className="col-8 offset-2">
-        <form onSubmit={handleFormSubmit}>
-          <div className="input-group mb-3">
-              <input 
-                type="text" 
-                className="form-control" 
-                placeholder="Search For A Recipe"
-                value={foodItem}
-                onChange={handleInputChange}
-                required
-                />
-              <button 
-                className="btn btn-outline-success" 
-                type="submit"
-              >Search</button>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+    <Container className="app container text-center mb-4">
+      <Row className="row">
+        <Col className="col-8 offset-2">
+          <Form onSubmit={handleFormSubmit}>
+            <Form.Control 
+              className="input-group mb-3"
+              type="search" 
+              placeholder="Search For A Recipe"
+              value={foodItem}
+              onChange={handleInputChange}
+              required
+            />
+            <Button 
+              variant="success" 
+              type="submit">Search</Button>
+          </Form>
+          </Col>
+      </Row>
+    </Container>
   );
 }
  
