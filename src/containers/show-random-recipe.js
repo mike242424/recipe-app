@@ -1,25 +1,43 @@
 import { useSelector } from "react-redux";
+import 'bootstrap/dist/css/bootstrap.css';
+import '../app.css';
+import {  Card, Container, Row, Col } from "react-bootstrap";
+import _ from 'lodash';
 
 const ShowRandomRecipe = () => {
   const randomRecipeData = useSelector(state => state.randomRecipeData);
 
+  const renderRandomRecipes = () => {
+    if (!_.isEmpty(randomRecipeData)) {
+      return randomRecipeData.recipes.map((recipe) =>
+      <Col className="mb-4 md-4 d-flex align-items-stretch">
+        <Card className="recipe-card" style={{ width: '18rem' }} key={recipe.id}>
+          <a href={recipe.sourceUrl} className="text-reset text-decoration-none">
+          <Card.Img 
+            variant="top" 
+            src={recipe.image} 
+            alt={recipe.title} />
+          <Card.Body className="text-center">
+            <Card.Title>{recipe.title}</Card.Title>
+            <Card.Text>Servings: {recipe.servings}</Card.Text>
+            <Card.Text>Ready in {recipe.readyInMinutes} minutes</Card.Text>
+            </Card.Body>
+          </a>
+        </Card>
+      </Col>
+      )
+    }  
+  };
+
   return (
-    <div className="show-random-recipe">
-      <div className="show-recipe row">
-      {randomRecipeData && randomRecipeData.recipes.map((recipe) =>
-      <div className=" card col-md-6  col-lg-4 p-2" key={recipe.id}>
-        {<img className="card-img-top" src={recipe.image} alt="recipe pic" />}
-        <div className="card-body">
-          <h4 className="card-title">{recipe.title}</h4>
-          <a style={{color: "green", textDecoration: 'none'}} href={recipe.sourceUrl}><strong>Recipe</strong></a>
-          <p className="m-1" >Servings: {recipe.servings}</p>
-          <p>Ready in {recipe.readyInMinutes} minutes</p>
-        </div>
-      </div> 
-      )}
-    </div>
-    </div>
-  );
+    <>
+      <Container className="show-random-recipe text-center">
+        <Row className="show-recipe">
+          {renderRandomRecipes()}
+          </Row>
+      </Container>
+    </>
+  )
 }
  
 export default ShowRandomRecipe;
