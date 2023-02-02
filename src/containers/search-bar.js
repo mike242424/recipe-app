@@ -24,7 +24,7 @@ const SearchBar = () => {
         <Col className="col-8 offset-2">
           <Form onSubmit={handleFormSubmit}>
             <Form.Control 
-              className="input-group mb-3"
+              className="input-group mb-3 blah"
               type="search" 
               placeholder="Search For A Recipe"
               value={foodItem}
