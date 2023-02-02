@@ -10,11 +10,6 @@ const SearchResults = () => {
   const dispatch = useDispatch();
 
   const baseUri = "https://spoonacular.com/recipeImages/";
-  
-  const handleRecipeClick = (id) => {
-    dispatch(fetchRecipeInfo(id));
-    // route to individual recipe/id page for more info?
-  }
 
   // need to bind this function to a click on the individual recipe card. the id should be the recipe.id from the first API of the card that was clicked.
   const handleRecipeClick = (id) => {
