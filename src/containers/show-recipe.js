@@ -23,7 +23,8 @@ const ShowRecipe = () => {
         <Card className="recipe-card" style={{ width: '18rem' }} key={recipe.id}>
           <a href={recipe.sourceUrl} className="text-reset text-decoration-none">
           {recipe.image ? <Card.Img 
-            variant="top" 
+            variant="top"
+            style={{aspectRatio: "1/1", objectFit: "cover", width: "100%", height: "45vh"}} 
             src={`${baseUri}${recipe.image}`} 
             alt={recipe.title} /> : <span></span>}
           <Card.Body className="text-center">
