@@ -35,7 +35,7 @@ const SearchBar = () => {
               variant="success" 
               type="submit">Search</Button>
           </Form>
-          </Col>
+        </Col>
       </Row>
     </Container>
   );
