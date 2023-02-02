@@ -10,13 +10,34 @@ import { createStore, applyMiddleware } from 'redux';
 
 import reducers from './reducers';
 
-import App from './components/app';
+import Header from './components/header';
+import RandomResults from './containers/random-results';
+import SearchResults from './containers/search-results';
+import RecipePage from './components/recipe-page';
+import HomePage from './components/home';
+import NotFound from './components/not-found';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App />
-  }
+    element: <HomePage />
+  },
+  {
+    path: "/random",
+    element: <RandomResults />
+  },
+  {
+    path: "/search",
+    element: <SearchResults />
+  },
+  {
+    path: "/search/:id",
+    element: <RecipePage />
+  },
+  {
+    path: "*",
+    element: <NotFound />
+  },
 ]);
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
@@ -25,9 +46,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <React.StrictMode>
-      <RouterProvider router={router}>
-        <App />
-      </RouterProvider>
+      <Header />
+      <RouterProvider router={router} />
     </React.StrictMode>,
   </Provider>
 );

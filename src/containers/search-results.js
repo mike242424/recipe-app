@@ -1,13 +1,21 @@
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
+import { fetchRecipeInfo } from "../actions";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../app.css';
 import {  Card, Container, Row, Col } from "react-bootstrap";
 import _ from 'lodash';
 
-const ShowRecipe = () => {
+const SearchResults = () => {
   const recipeData = useSelector(state => state.recipeData);
+  const dispatch = useDispatch();
 
   const baseUri = "https://spoonacular.com/recipeImages/";
+
+  // need to bind this function to a click on the individual recipe card. the id should be the recipe.id from the first API of the card that was clicked.
+  const handleRecipeClick = (id) => {
+    dispatch(fetchRecipeInfo(id));
+    // on click, route browser to 'search/id' page for more info
+  }
 
   const renderRecipes = () => {
     if (!_.isEmpty(recipeData)) {
@@ -59,4 +67,4 @@ const ShowRecipe = () => {
   // );
 }
  
-export default ShowRecipe;
+export default SearchResults;
