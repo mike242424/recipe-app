@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
 import { fetchRecipeInfo } from "../actions";
-import { useSelector } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../app.css';
 import {  Card, Container, Row, Col } from "react-bootstrap";
