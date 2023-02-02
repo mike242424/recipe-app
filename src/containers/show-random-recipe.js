@@ -13,15 +13,15 @@ const ShowRandomRecipe = () => {
       <Col className="mb-4 md-4 d-flex align-items-stretch">
         <Card className="recipe-card" style={{ width: '18rem' }} key={recipe.id}>
           <a href={recipe.sourceUrl} className="text-reset text-decoration-none">
-          <Card.Img 
+          {recipe.image ? <Card.Img 
             variant="top" 
             src={recipe.image} 
-            alt={recipe.title} />
+            alt={recipe.title} /> : <span></span>}
           <Card.Body className="text-center">
             <Card.Title>{recipe.title}</Card.Title>
             <Card.Text>Servings: {recipe.servings}</Card.Text>
             <Card.Text>Ready in {recipe.readyInMinutes} minutes</Card.Text>
-            </Card.Body>
+          </Card.Body>
           </a>
         </Card>
       </Col>
