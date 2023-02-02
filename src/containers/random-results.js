@@ -4,7 +4,7 @@ import '../app.css';
 import {  Card, Container, Row, Col } from "react-bootstrap";
 import _ from 'lodash';
 
-const ShowRandomRecipe = () => {
+const RandomResults = () => {
   const randomRecipeData = useSelector(state => state.randomRecipeData);
 
   const renderRandomRecipes = () => {
@@ -41,4 +41,4 @@ const ShowRandomRecipe = () => {
   )
 }
  
-export default ShowRandomRecipe;
+export default RandomResults;

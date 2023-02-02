@@ -11,13 +11,10 @@ export const recipeReducer = (state = null, action) => {
 
 export const recipeInfoReducer = (state = null, action) => {
   switch (action.type) {
-    case FETCH_RECIPE_INFO:
-
-    console.log('Specific Recipe Info: ', action.payload.data);
-
-    return state = action.payload.data;
-  default:
-    return state;
+    case FETCH_RECIPE_INFO: 
+      return state = action.payload.data;
+    default:
+      return state;
   }
 }
 
