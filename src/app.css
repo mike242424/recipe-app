@@ -1,6 +1,6 @@
-.form-control:focus {
-  border-color: green;
-  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+.blah:focus {
+  border-color: green !important;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
 }
 
 .card {
