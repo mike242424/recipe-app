@@ -1,9 +1,10 @@
 import { combineReducers } from "redux";
-import { recipeReducer } from "./recipe-reducer";
+import { recipeReducer, recipeInfoReducer } from "./recipe-reducer";
 import { randomRecipeReducer } from "./recipe-reducer";
 
 const rootReducer = combineReducers({
   recipeData: recipeReducer,
+  recipeInfo: recipeInfoReducer,
   randomRecipeData: randomRecipeReducer
 });
 
