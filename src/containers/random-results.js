@@ -6,7 +6,6 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { fetchRecipeInfo } from "../actions";
 import _ from 'lodash';
 
-import RandomRecipeButton from "./random-recipe-button";
 import { useEffect } from "react";
 
 const RandomResults = () => {
@@ -42,7 +41,6 @@ const RandomResults = () => {
   return (
     <>
       <Container className="show-random-recipe text-center">
-        {/* <RandomRecipeButton /> */}
         <Row className="show-recipe">
           {renderRandomRecipes()}
           </Row>
