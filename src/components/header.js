@@ -2,6 +2,7 @@ import { Navbar, Nav, Container, Form, Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
+import  { fetchRandomRecipe } from "../actions";
 import { fetchRecipe } from "../actions";
 import { useNavigate } from "react-router";
 import { LinkContainer } from "react-router-bootstrap";
@@ -23,13 +24,17 @@ const Header = () => {
     navigate("/search");
   }
 
+  const handleClick = () => {
+    dispatch(fetchRandomRecipe());
+  }
+
   return (
   <Navbar bg="success" variant="dark" fixed="top" className="p-3">
     <Container>
       <Navbar.Brand href="/">Highway to FlavorTown</Navbar.Brand>
       <Nav className="me-auto">
         <LinkContainer to="/random">
-          <Nav.Link className="m-4">Get Random Recipe(s)</Nav.Link>
+          <Nav.Link onClick={handleClick} className="m-4">Get Random Recipe(s)</Nav.Link>
         </LinkContainer>
       </Nav>
       <Form className="d-flex" onSubmit={handleFormSubmit}>
