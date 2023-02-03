@@ -25,7 +25,8 @@ const Header = () => {
   }
 
   const handleClick = () => {
-    dispatch(fetchRandomRecipe());
+    dispatch(fetchRandomRecipe())
+    navigate("/random");
   }
 
   return (
@@ -33,9 +34,7 @@ const Header = () => {
     <Container>
       <Navbar.Brand href="/">Highway to FlavorTown</Navbar.Brand>
       <Nav className="me-auto">
-        <LinkContainer to="/random">
           <Nav.Link onClick={handleClick} className="m-4">Get Random Recipe(s)</Nav.Link>
-        </LinkContainer>
       </Nav>
       <Form className="d-flex" onSubmit={handleFormSubmit}>
             <Form.Control 

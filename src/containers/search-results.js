@@ -19,8 +19,8 @@ const SearchResults = () => {
     if (!_.isEmpty(recipeData)) {
       return recipeData.results.map((recipe) =>
       <LinkContainer to={`/${recipe.id}`} onClick={handleRecipeClick(recipe.id)}>
-        <Col className="mb-4 md-4 d-flex align-items-stretch">
-          <Card className="recipe-card" style={{ width: '18rem' }} key={recipe.id}>
+        <Col className="mb-4 md-4 d-flex align-items-stretch" key={recipe.id}>
+          <Card className="recipe-card" style={{ width: '18rem' }}>
             {recipe.image ? <Card.Img 
               variant="top"
               style={{aspectRatio: "1/1", objectFit: "cover", width: "100%", height: "45vh"}} 
