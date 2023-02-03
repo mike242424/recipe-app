@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     element: <SearchResults />
   },
   {
-    path: "/search/:id",
+    path: "/:id",
     element: <RecipePage />
   },
   {
@@ -48,6 +48,6 @@ root.render(
     <React.StrictMode>
       <Header />
       <RouterProvider router={router} />
-    </React.StrictMode>,
+    </React.StrictMode>
   </Provider>
 );
