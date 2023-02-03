@@ -5,7 +5,7 @@ import {  Card, Container, Row, Col } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap';
 import { fetchRecipeInfo } from "../actions";
 import _ from 'lodash';
-import RandomRecipeButton from "./random-recipe-button";
+// import RandomRecipeButton from "./random-recipe-button";
 
 const RandomResults = () => {
   const randomRecipeData = useSelector(state => state.randomRecipeData);
@@ -17,8 +17,8 @@ const RandomResults = () => {
   const renderRandomRecipes = () => {
     if (!_.isEmpty(randomRecipeData)) {
       return randomRecipeData.recipes.map((recipe) =>
-        <LinkContainer to={`/${recipe.id}`} onClick={handleRecipeClick(recipe.id)}>
-          <Col className="mb-4 md-4 d-flex align-items-stretch" key={recipe.id}>
+        <LinkContainer to={`/${recipe.id}`} onClick={handleRecipeClick(recipe.id)} key={recipe.id}>
+          <Col className="mb-4 md-4 d-flex align-items-stretch">
             <Card className="recipe-card" style={{ width: '18rem' }} >
               {recipe.image ? <Card.Img 
                 variant="top"
@@ -40,7 +40,7 @@ const RandomResults = () => {
   return (
     <>
       <Container className="show-random-recipe text-center">
-        <RandomRecipeButton />
+        {/* <RandomRecipeButton /> */}
         <Row className="show-recipe">
           {renderRandomRecipes()}
           </Row>
