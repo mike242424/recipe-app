@@ -1,23 +1,47 @@
-import RandomRecipeButton from "../containers/random-recipe-button"
-import SearchBar from "../containers/search-bar"
+import { Navbar, Nav, Container, Form, Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.css';
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { fetchRecipe } from "../actions";
+import { useNavigate } from "react-router";
+
 
 const Header = () => {
+  const [foodItem, setFoodItem] = useState("");
+  const dispatch = useDispatch();
+  // const navigate = useNavigate();
+
+  const handleInputChange = (e) => {
+    setFoodItem(e.target.value);
+  }
+
+  const handleFormSubmit = (e) => {
+    e.preventDefault();
+    dispatch(fetchRecipe(foodItem));
+    setFoodItem("");
+    // navigate("/search");
+  }
+
   return (
-  <div className="header container text-center">
-    <nav
-      className="navbar navbar-default navbar-fixed-top navbar-dark bg-success p-3"
-    >
-      <div>
-            <a className="m-4" style={{color:"white", textDecoration: "none"}} href="/">Home</a>
-            <a className="m-4" style={{color:"white", textDecoration: "none"}} href="/search">Search Recipe</a>
-            <a className="m-4" style={{color:"white", textDecoration: "none"}} href="/random">Random Recipe</a>
-      </div>
-    </nav>
-    <h1 className='m-4' >Find Your Flavor</h1>
-    <RandomRecipeButton />
-    <SearchBar />
-  </div>
+  <Navbar bg="success" variant="dark" fixed="top" className="p-3">
+    <Container>
+      <Navbar.Brand href="/">Highway to FlavorTown</Navbar.Brand>
+      <Nav className="me-auto">
+        <Nav.Link className="m-4" href="/random">Get Random Recipe(s)</Nav.Link>
+      </Nav>
+      <Form onSubmit={handleFormSubmit}>
+            <Form.Control 
+              className="input-group"
+              type="search" 
+              placeholder="Search For A Recipe"
+              value={foodItem}
+              onChange={handleInputChange}
+              required
+            />
+        <Button variant="light" type="submit">Search</Button>
+      </Form>
+    </Container>
+  </Navbar>
   )
 };
 
