@@ -1,6 +1,4 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import css from './app.css';
-
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import promise from 'redux-promise';

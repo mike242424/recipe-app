@@ -6,6 +6,9 @@ import  { fetchRandomRecipe } from "../actions";
 import { fetchRecipe } from "../actions";
 import { useNavigate } from "react-router";
 import { LinkContainer } from "react-router-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faRoad, faUtensils } from '@fortawesome/free-solid-svg-icons'
+import '../app.css';
 
 
 const Header = () => {
@@ -29,9 +32,11 @@ const Header = () => {
   }
 
   return (
-  <Navbar bg="success" variant="dark" fixed="top" className="p-3">
+  <Navbar bg="success" variant="dark" fixed="top">
     <Container>
-      <Navbar.Brand href="/">Highway to FlavorTown</Navbar.Brand>
+      <Navbar.Brand href="/">
+        <FontAwesomeIcon icon={faRoad} /> Highway to Flavortown <FontAwesomeIcon icon={faUtensils} />
+      </Navbar.Brand>
       <Nav className="me-auto">
         <LinkContainer to="/random">
           <Nav.Link onClick={handleClick} className="m-4">Get Random Recipe(s)</Nav.Link>

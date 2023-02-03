@@ -1,3 +1,14 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+
+/* Image by timolina on Freepik */
+.home-page {
+  background-image: url("https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg?w=1800&t=st=1675454349~exp=1675454949~hmac=77f2dc96a5fdf8b30949e58c00dc1fb660e98660e12920c826e39133c57381ea");
+}
+
+.navbar-brand {
+  font-family: "Russo One", sans-serif;
+}
+
 .blah:focus {
   border-color: green !important;
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
