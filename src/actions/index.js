@@ -7,7 +7,7 @@ export const FETCH_RANDOM_RECIPE = "FETCH_RANDOM_RECIPE";
 export const fetchRecipe = foodItem => {
   const API_KEY = process.env.REACT_APP_MIKE_SPOON_API_KEY
   console.log(API_KEY);
-  const request = axios.get(`https://api.spoonacular.com/recipes/search?apiKey=${API_KEY}&number=12&query=${foodItem}`)
+  const request = axios.get(`https://api.spoonacular.com/recipes/search?apiKey=${API_KEY}&number=12&addRecipeInformation=true&query=${foodItem}`)
     .catch(error => {
       console.error(error.message);
       return;

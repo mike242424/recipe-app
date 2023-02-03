@@ -5,6 +5,7 @@ import {  Card, Container, Row, Col } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap';
 import { fetchRecipeInfo } from "../actions";
 import _ from 'lodash';
+
 import { useEffect, useState } from "react";
 
 const RandomResults = () => {

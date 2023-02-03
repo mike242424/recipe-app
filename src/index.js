@@ -1,4 +1,5 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { Container } from 'react-bootstrap';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import promise from 'redux-promise';
@@ -14,7 +15,6 @@ import SearchResults from './containers/search-results';
 import RecipePage from './components/recipe-page';
 import HomePage from './components/home';
 import NotFound from './components/not-found';
-import { Container } from 'react-bootstrap';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
