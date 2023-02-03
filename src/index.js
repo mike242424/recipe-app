@@ -51,6 +51,5 @@ root.render(
           <Header />
         </BrowserRouter>
       </React.StrictMode>
-    <RouterProvider />
   </Provider>
 );
