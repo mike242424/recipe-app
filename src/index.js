@@ -31,7 +31,7 @@ const router = createBrowserRouter([
     element: <SearchResults />
   },
   {
-    path: "/search/:id",
+    path: "/:id",
     element: <RecipePage />
   },
   {
@@ -46,10 +46,11 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
     <RouterProvider router={router} />
-    <React.StrictMode>
-      <BrowserRouter>
-        <Header />
-      </BrowserRouter>
-    </React.StrictMode>,
+      <React.StrictMode>
+        <BrowserRouter>
+          <Header />
+        </BrowserRouter>
+      </React.StrictMode>
+    <RouterProvider />
   </Provider>
 );

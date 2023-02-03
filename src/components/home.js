@@ -1,6 +1,13 @@
+import RandomRecipeButton from "../containers/random-recipe-button";
+import SearchBar from "../containers/search-bar";
+
 const HomePage = () => {
   return (
-    <h1 className="text-center">👋 Welcome! (Home Page)</h1>
+    <div className="text-center">
+      <h1>👋 Welcome! (Home Page)</h1>
+      <SearchBar />
+      <RandomRecipeButton />
+    </div>
   )
 };
 
