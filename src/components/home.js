@@ -1,9 +1,11 @@
 // import RandomRecipeButton from "../containers/random-recipe-button";
 // import SearchBar from "../containers/search-bar";
+import { Container } from 'react-bootstrap';
+
 
 const HomePage = () => {
   return (
-    <div className="text-center">
+    <Container className="text-center home-page mt-40">
       <br />
       <br />
       <br />
@@ -14,7 +16,7 @@ const HomePage = () => {
       <h4 className="p-2">Here, you are able search for recipes by ingredient or receive  random recipe ideas</h4>
       {/* <SearchBar /> */}
       {/* <RandomRecipeButton /> */}
-    </div>
+    </Container>
   )
 };
 
