@@ -2,7 +2,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import promise from 'redux-promise';
-import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import { createStore, applyMiddleware } from 'redux';
 
@@ -14,39 +14,25 @@ import SearchResults from './containers/search-results';
 import RecipePage from './components/recipe-page';
 import HomePage from './components/home';
 import NotFound from './components/not-found';
-
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <HomePage />
-  },
-  {
-    path: "/random",
-    element: <RandomResults />
-  },
-  {
-    path: "/search",
-    element: <SearchResults />
-  },
-  {
-    path: "/:id",
-    element: <RecipePage />
-  },
-  {
-    path: "*",
-    element: <NotFound />
-  },
-]);
+import { Container } from 'react-bootstrap';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={createStoreWithMiddleware(reducers)}>
-    <RouterProvider router={router} />
       <React.StrictMode>
         <BrowserRouter>
           <Header />
+          <Container>
+            <Routes>
+              <Route path="/" element={<HomePage />} />
+              <Route path="/search" element={<SearchResults />} />
+              <Route path="/random" element={<RandomResults />} />
+              <Route path="/:id" element={<RecipePage />} />
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Container>
         </BrowserRouter>
       </React.StrictMode>
   </Provider>
