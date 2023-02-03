@@ -15,8 +15,6 @@ const Header = () => {
       </div>
     </nav>
     <h1 className='m-4' >Find Your Flavor</h1>
-    <RandomRecipeButton />
-    <SearchBar />
   </div>
   )
 };
