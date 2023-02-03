@@ -4,12 +4,13 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { fetchRecipe } from "../actions";
 import { useNavigate } from "react-router";
+import { LinkContainer } from "react-router-bootstrap";
 
 
 const Header = () => {
   const [foodItem, setFoodItem] = useState("");
   const dispatch = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
 
   const handleInputChange = (e) => {
     setFoodItem(e.target.value);
@@ -19,7 +20,7 @@ const Header = () => {
     e.preventDefault();
     dispatch(fetchRecipe(foodItem));
     setFoodItem("");
-    // navigate("/search");
+    navigate("/search");
   }
 
   return (
@@ -27,11 +28,13 @@ const Header = () => {
     <Container>
       <Navbar.Brand href="/">Highway to FlavorTown</Navbar.Brand>
       <Nav className="me-auto">
-        <Nav.Link className="m-4" href="/random">Get Random Recipe(s)</Nav.Link>
+        <LinkContainer to="/random">
+          <Nav.Link className="m-4">Get Random Recipe(s)</Nav.Link>
+        </LinkContainer>
       </Nav>
-      <Form onSubmit={handleFormSubmit}>
+      <Form className="d-flex" onSubmit={handleFormSubmit}>
             <Form.Control 
-              className="input-group"
+              className="input-group me-2"
               type="search" 
               placeholder="Search For A Recipe"
               value={foodItem}
