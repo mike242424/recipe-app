@@ -5,7 +5,7 @@ import '../app.css';
 import {  Card, Container, Row, Col } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap'
 import _ from 'lodash';
-import SearchBar from "./search-bar";
+// import SearchBar from "./search-bar";
 
 const SearchResults = () => {
   const recipeData = useSelector(state => state.recipeData);
@@ -18,8 +18,8 @@ const SearchResults = () => {
   const renderRecipes = () => {
     if (!_.isEmpty(recipeData)) {
       return recipeData.results.map((recipe) =>
-      <LinkContainer to={`/${recipe.id}`} onClick={handleRecipeClick(recipe.id)}>
-        <Col className="mb-4 md-4 d-flex align-items-stretch" key={recipe.id}>
+      <LinkContainer to={`/${recipe.id}`} onClick={handleRecipeClick(recipe.id)} key={recipe.id}>
+        <Col className="mb-4 md-4 d-flex align-items-stretch">
           <Card className="recipe-card" style={{ width: '18rem' }}>
             {recipe.image ? <Card.Img 
               variant="top"
@@ -41,7 +41,7 @@ const SearchResults = () => {
   return (
     <>
       <Container className="show-random-recipe text-center">
-        <SearchBar />
+        {/* <SearchBar /> */}
         <Row className="show-recipe">
           {renderRecipes()}
           </Row>
