@@ -24,7 +24,7 @@ const RecipePage = () => {
           <br />
           <br />
           <br />
-          <img className="mb-4" src={recipeInfo.image} alt={recipeInfo.title} />
+          <img className="mb-4" src={recipeInfo.image ? recipeInfo.image : <p>no image</p>} alt={recipeInfo.title} />
           <h1>{recipeInfo.title}</h1>
           <p>Servings: {recipeInfo.servings}</p>
           <p>Cooking Time: {recipeInfo.readyInMinutes} minutes</p>

@@ -1,18 +1,18 @@
 import { useSelector, useDispatch } from "react-redux";
-import { fetchRecipeInfo } from "../actions";
+// import { fetchRecipe, fetchRecipeInfo } from "../actions";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../app.css';
 import {  Card, Container, Row, Col } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap'
 import _ from 'lodash';
-// import SearchBar from "./search-bar";
 
 const SearchResults = () => {
   const recipeData = useSelector(state => state.recipeData);
-  const dispatch = useDispatch();
+  // const dispatch = useDispatch();
   const baseUri = "https://spoonacular.com/recipeImages/";
   const handleRecipeClick = (id) => {
-    dispatch(fetchRecipeInfo(id));
+    // dispatch(fetchRecipe());
+    console.log(recipeData);
   }
 
   const renderRecipes = () => {
@@ -22,8 +22,7 @@ const SearchResults = () => {
         <Col className="mb-4 md-4 d-flex align-items-stretch">
           <Card className="recipe-card" style={{ width: '18rem' }}>
             {recipe.image ? <Card.Img 
-              variant="top"
-              style={{aspectRatio: "1/1", objectFit: "cover", width: "100%", height: "45vh"}} 
+              variant="top" 
               src={`${baseUri}${recipe.image}`} 
               alt={recipe.title} /> : <span></span>}
             <Card.Body className="text-center">
@@ -40,8 +39,7 @@ const SearchResults = () => {
 
   return (
     <>
-      <Container className="show-random-recipe text-center">
-        {/* <SearchBar /> */}
+      <Container className="show-random-recipe text-center m-4">
         <Row className="show-recipe">
           {renderRecipes()}
           </Row>

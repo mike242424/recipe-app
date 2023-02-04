@@ -2,7 +2,14 @@
 
 /* Image by timolina on Freepik */
 .home-page {
-  background-image: url("https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg?w=1800&t=st=1675454349~exp=1675454949~hmac=77f2dc96a5fdf8b30949e58c00dc1fb660e98660e12920c826e39133c57381ea");
+  background: url("https://img.freepik.com/free-photo/chicken-wings-barbecue-sweetly-sour-sauce-picnic-summer-menu-tasty-food-top-view-flat-lay_2829-6471.jpg?w=1800&t=st=1675454349~exp=1675454949~hmac=77f2dc96a5fdf8b30949e58c00dc1fb660e98660e12920c826e39133c57381ea")
+    no-repeat center center;
+  color: white;
+  height: 100vh;
+  /* width: 100%; */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 .navbar-brand {
