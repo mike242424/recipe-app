@@ -33,7 +33,7 @@ const Header = () => {
   }
 
   return (
-  <Navbar bg="success" variant="dark" fixed="top">
+  <Navbar bg="success" variant="dark" static="top">
     <Container>
       <Navbar.Brand href="/">
         <FontAwesomeIcon icon={faRoad} /> Highway to Flavortown <FontAwesomeIcon icon={faUtensils} />
