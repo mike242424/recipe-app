@@ -2,11 +2,12 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
 const ViewSelectedSearchRecipe = () => {
-  const recipeData = useSelector((state) => state.recipeData);
+  const recipeData = useSelector(state => state.recipeData);
   console.log(recipeData);
   const { id } = useParams();
   const isRecipe = r => r.id === Number(id);
   const recipe = recipeData.results.find(isRecipe);
+  console.log(recipe);
  
   return (
     <div className="recipe-info text-center">
