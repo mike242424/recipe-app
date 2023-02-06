@@ -1,13 +1,23 @@
 import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 
+import _ from 'lodash';
+
 const ViewSelectedSearchRecipe = () => {
   const recipeData = useSelector(state => state.recipeData);
-  console.log(recipeData);
+  // console.log(recipeData);
   const { id } = useParams();
   const isRecipe = r => r.id === Number(id);
   const recipe = recipeData.results.find(isRecipe);
   console.log(recipe);
+
+  const renderSteps = () => {
+    if (!_.isEmpty(recipe)) {
+      return recipe.analyzedInstructions[0].steps.map((item, i) =>
+      <p key={recipe.id}>{`${i + 1}. ${item.step}`}</p>
+      )
+    }  
+  }
  
   return (
     <div className="recipe-info text-center">
@@ -27,6 +37,7 @@ const ViewSelectedSearchRecipe = () => {
           <h1>{recipe.title}</h1>
           <p>Servings: {recipe.servings}</p>
           <p>Cooking Time: {recipe.readyInMinutes} minutes</p>
+          {renderSteps()}
         </div>
       </div>
     </div>
