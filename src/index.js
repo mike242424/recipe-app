@@ -12,10 +12,10 @@ import reducers from './reducers';
 import Header from './components/header';
 import RandomResults from './containers/random-results';
 import SearchResults from './containers/search-results';
-import RecipePage from './components/recipe-page';
 import HomePage from './components/home';
 import NotFound from './components/not-found';
 import ViewSelectedRandomRecipe from './containers/viewSelectedRandomRecipe';
+import ViewSelectedSearchRecipe from './containers/viewSelectedSearchRecipe';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -29,7 +29,7 @@ root.render(
             <Routes>
               <Route path="/" element={<HomePage />} />
               <Route exact path="/search" element={<SearchResults />} />
-              <Route path="/search/:id" element={<RecipePage />} />
+              <Route path="/search/:id" element={<ViewSelectedSearchRecipe />} />
               <Route exact path="/random" element={<RandomResults />} />
               <Route path="random/:id" element={<ViewSelectedRandomRecipe />} />
               <Route path="*" element={<NotFound />} />
