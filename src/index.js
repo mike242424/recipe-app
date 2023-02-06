@@ -10,8 +10,8 @@ import { createStore, applyMiddleware } from 'redux';
 import reducers from './reducers';
 
 import Header from './components/header';
-import RandomResults from './containers/random-results';
-import SearchResults from './containers/search-results';
+import RandomResults from './containers/randomResults';
+import SearchResults from './containers/searchResults';
 import HomePage from './components/home';
 import NotFound from './components/not-found';
 import ViewSelectedRandomRecipe from './containers/viewSelectedRandomRecipe';

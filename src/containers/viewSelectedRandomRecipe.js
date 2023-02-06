@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom"
 
 
 const ViewSelectedRandomRecipe = () => {
-  const randomRecipeData = useSelector(state => state.randomRecipeData)
-  const { id } = useParams()
-  console.log(id)
+  const randomRecipeData = useSelector(state => state.randomRecipeData);
+  console.log(randomRecipeData);
+  const { id } = useParams();
   const isRecipe = r => r.id === Number(id);
   const recipe = randomRecipeData.recipes.find(isRecipe);
   console.log(recipe);
