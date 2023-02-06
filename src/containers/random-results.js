@@ -26,7 +26,7 @@ const RandomResults = () => {
   const renderRandomRecipes = () => {
     if (!_.isEmpty(randomRecipeData)) {
       return randomRecipeData.recipes.map((recipe) =>
-        <LinkContainer to={`/${recipe.id}`} onClick={handleRecipeClick()} key={recipe.id}>
+        <LinkContainer to={`/random/${recipe.id}`} onClick={handleRecipeClick()} key={recipe.id}>
           <Col className="mb-4 md-4 d-flex align-items-stretch">
             <Card className="recipe-card" style={{ width: '18rem' }} >
               {recipe.image ? <Card.Img 
