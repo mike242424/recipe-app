@@ -13,19 +13,17 @@ const ViewSelectedSearchRecipe = () => {
 
   const renderIngredients = () => {
     if (!_.isEmpty(recipe)) {
-      return recipe.extendedIngredients.map(item =>
-      <ul>
-        <li>{`${item.measures.us.amount} ${item.measures.us.unitShort} ${item.originalName}`}</li>
-      </ul>
+      return recipe.extendedIngredients.map((item, index) =>
+        <li key={index}>{`${item.measures.us.amount} ${item.measures.us.unitShort} ${item.originalName}`}</li>
       )
     }  
   }
   
   const renderSteps = () => {
     if (!_.isEmpty(recipe)) {
-      return recipe.analyzedInstructions.map((item) => {
-        return item.steps.map(m => {
-          return <p>{`${m.number}. ${m.step}`}</p>
+      return recipe.analyzedInstructions.map(item => {
+        return item.steps.map((m, index) => {
+          return <p key={index}>{`${m.number}. ${m.step}`}</p>
         })
       })
     } 
@@ -48,7 +46,9 @@ const ViewSelectedSearchRecipe = () => {
           <p className="text-center"><strong>Servings: </strong>{recipe.servings}</p>
           <p className="text-center"><strong>Cooking Time: </strong>{recipe.readyInMinutes} minutes</p>
           <h4 className="mb-4 text-center" style={{textDecoration: "underline"}}><strong>Ingredients: </strong></h4>
-          {renderIngredients()}
+          <ul>
+            {renderIngredients()}
+          </ul>
           <h4 className="mb-4 text-center" style={{textDecoration: "underline"}}><strong>Instructions: </strong></h4>
           {renderSteps()}
         </div>

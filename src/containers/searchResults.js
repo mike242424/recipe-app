@@ -5,6 +5,7 @@ import {  Card, Container, Row, Col } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap'
 import _ from 'lodash';
 
+
 const SearchResults = () => {
   const recipeData = useSelector(state => state.recipeData);
 

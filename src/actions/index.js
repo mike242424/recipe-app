@@ -3,6 +3,7 @@ import axios from "axios";
 export const FETCH_RECIPE = "FETCH_RECIPE";
 export const FETCH_RECIPE_INFO = "FETCH_RECIPE_INFO";
 export const FETCH_RANDOM_RECIPE = "FETCH_RANDOM_RECIPE";
+export const LOADING_TOGGLE_ACTION = "LOADING_TOGGLE_ACTION";
 
 export const fetchRecipe = foodItem => {
   const API_KEY = process.env.REACT_APP_MIKE_SPOON_API_KEY
