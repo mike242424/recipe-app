@@ -15,36 +15,42 @@ const ViewSelectedRandomRecipe = () => {
   const renderIngredients = () => {
     if (!_.isEmpty(recipe)) {
       return recipe.extendedIngredients.map(item =>
-        <p key={recipe.id}>{`${item.measures.us.amount} ${item.measures.us.unitShort} ${item.originalName}`}</p>
+        <ul>
+          <li>{`${item.measures.us.amount} ${item.measures.us.unitShort} ${item.originalName}`}</li>
+        </ul>
       )
     }  
   }
   
-  const renderSteps = () => {
+  const renderSteps = () => { 
     if (!_.isEmpty(recipe)) {
-      return recipe.analyzedInstructions[0].steps.map((item, i) =>
-      <p key={recipe.id}>{`${i + 1}. ${item.step}`}</p>
-      )
-    }  
+      return recipe.analyzedInstructions.map((item) => {
+        return item.steps.map(m => {
+          return <p className="text-left">{`${m.number}. ${m.step}`}</p>
+        })
+      })
+    } 
   }
 
   return (
-    <div className="recipe-info text-center" key={recipe.id}>
+    <div className="recipe-info">
       <div className="row">
         <div className="col-8 offset-2">
           <br />
           <br />
-          <br />
-          <br />
-          <br />
-          <br />
-          <img className="mb-4" src={recipe.image ? recipe.image : <p>no image</p>} alt={recipe.title} />
-          <h1>{recipe.title}</h1>
-          <p>Servings: {recipe.servings}</p>
-          <p>Cooking Time: {recipe.readyInMinutes} minutes</p>
-          <h4>Ingredients: </h4>
+          <h1 className="pt-0 pb-3 text-center">{recipe.title}</h1>
+          <div className="text-center">
+            <img
+              className="mb-4"
+              src={recipe.image ? recipe.image : <p>no image</p>}
+              alt={recipe.title}
+            />
+          </div>
+          <p className="text-center"><strong>Servings: </strong>{recipe.servings}</p>
+          <p className="text-center"><strong>Cooking Time: </strong>{recipe.readyInMinutes} minutes</p>
+          <h4 className="mb-4 text-center" style={{textDecoration: "underline"}}><strong>Ingredients: </strong></h4>
           {renderIngredients()}
-          <h4>Instructions: </h4>
+          <h4 className="mb-4 text-center" style={{textDecoration: "underline"}}><strong>Instructions: </strong></h4>
           {renderSteps()}
         </div>
       </div>
