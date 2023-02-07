@@ -12,6 +12,14 @@ const ViewSelectedRandomRecipe = () => {
   const recipe = randomRecipeData.recipes.find(isRecipe);
   console.log(recipe);
 
+  const renderIngredients = () => {
+    if (!_.isEmpty(recipe)) {
+      return recipe.extendedIngredients.map(item =>
+        <p key={recipe.id}>{`${item.measures.us.amount} ${item.measures.us.unitShort} ${item.originalName}`}</p>
+      )
+    }  
+  }
+  
   const renderSteps = () => {
     if (!_.isEmpty(recipe)) {
       return recipe.analyzedInstructions[0].steps.map((item, i) =>
@@ -34,6 +42,9 @@ const ViewSelectedRandomRecipe = () => {
           <h1>{recipe.title}</h1>
           <p>Servings: {recipe.servings}</p>
           <p>Cooking Time: {recipe.readyInMinutes} minutes</p>
+          <h4>Ingredients: </h4>
+          {renderIngredients()}
+          <h4>Instructions: </h4>
           {renderSteps()}
         </div>
       </div>
