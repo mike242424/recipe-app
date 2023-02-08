@@ -4,12 +4,19 @@ import '../app.css';
 import {  Card, Container, Row, Col } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap'
 import _ from 'lodash';
+import { useNavigate } from "react-router-dom";
 
 
 const SearchResults = () => {
   const recipeData = useSelector(state => state.recipeData);
+  const navigate = useNavigate();
 
   const renderRecipes = () => {
+    if (recipeData && recipeData.results.length === 0) {
+      alert('Please select another food item');
+      navigate('/');
+    }
+
     if (!_.isEmpty(recipeData)) {
       return recipeData.results.map((recipe) =>
       <LinkContainer to={`/search/${recipe.id}`} key={recipe.id}>

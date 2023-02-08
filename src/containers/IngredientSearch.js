@@ -5,7 +5,7 @@ import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { fetchRecipeByIngredient } from "../actions";
 import * as yup from "yup";
-import IngredientSearchResults from "../containers/igredientSearchResults";
+import IngredientSearchResults from "./IngredientSearchResults";
 
 const ingredientsSchema = yup.object({
   ingredient1: yup.string().required('You must provide at least one ingredient').max(20),
