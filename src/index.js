@@ -16,14 +16,18 @@ import HomePage from './components/home';
 import NotFound from './components/not-found';
 import ViewSelectedRandomRecipe from './containers/viewSelectedRandomRecipe';
 import ViewSelectedSearchRecipe from './containers/viewSelectedSearchRecipe';
+
 import IngredientSearch from './components/ingredientSearch';
 import ViewSelectedIngredientSearchRecipe from './containers/viewSelectedIngredientSearchRecipe';
+
+import { composeWithDevTools } from 'redux-devtools-extension';
+
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <Provider store={createStoreWithMiddleware(reducers)}>
+  <Provider store={createStoreWithMiddleware(reducers, composeWithDevTools())}>
       <React.StrictMode>
         <BrowserRouter>
           <Header />

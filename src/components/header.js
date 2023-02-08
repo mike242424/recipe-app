@@ -44,14 +44,14 @@ const Header = () => {
           </LinkContainer>
       </Nav>
       <Form className="d-flex" onSubmit={handleFormSubmit}>
-            <Form.Control 
-              className="input-group me-2"
-              type="search" 
-              placeholder="Search For A Recipe"
-              value={foodItem}
-              onChange={handleInputChange}
-              required
-            />
+        <Form.Control 
+          className="input-group me-2"
+          type="search" 
+          placeholder="Search For A Recipe"
+          value={foodItem}
+          onChange={handleInputChange}
+          required
+        />
         <Button variant="light" type="submit">Search</Button>
       </Form>
     </Container>
