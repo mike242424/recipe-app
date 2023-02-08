@@ -10,6 +10,11 @@ const SearchResults = () => {
   const recipeData = useSelector(state => state.recipeData);
 
   const renderRecipes = () => {
+    if (recipeData && recipeData.results.length === 0) {
+      console.log('Error')
+      alert('Please choose a valid food item');
+    }
+
     if (!_.isEmpty(recipeData)) {
       return recipeData.results.map((recipe) =>
       <LinkContainer to={`/search/${recipe.id}`} key={recipe.id}>
@@ -28,7 +33,7 @@ const SearchResults = () => {
         </Col>
       </LinkContainer>
       )
-    }  
+    } 
   };
 
   return (

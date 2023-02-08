@@ -1,5 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container } from 'react-bootstrap';
+
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import promise from 'redux-promise';
@@ -9,13 +10,14 @@ import { createStore, applyMiddleware } from 'redux';
 
 import reducers from './reducers';
 
-import Header from './components/header';
-import RandomResults from './containers/randomResults';
-import SearchResults from './containers/searchResults';
-import HomePage from './components/home';
-import NotFound from './components/not-found';
-import ViewSelectedRandomRecipe from './containers/viewSelectedRandomRecipe';
-import ViewSelectedSearchRecipe from './containers/viewSelectedSearchRecipe';
+import Header from './containers/Header';
+import RandomResults from './containers/RandomResults';
+import SearchResults from './containers/SearchResults';
+import HomePage from './components/Home';
+import NotFound from './components/NotFound';
+import ViewSelectedRandomRecipe from './containers/ViewSelectedRandomRecipe';
+import ViewSelectedSearchRecipe from './containers/ViewSelectedSearchRecipe';
+
 import { composeWithDevTools } from 'redux-devtools-extension';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
@@ -23,7 +25,7 @@ const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={createStoreWithMiddleware(reducers, composeWithDevTools())}>
-      <React.StrictMode>
+      {/* <React.StrictMode> */}
         <BrowserRouter>
           <Header />
           <Container>
@@ -37,6 +39,6 @@ root.render(
             </Routes>
           </Container>
         </BrowserRouter>
-      </React.StrictMode>
+      {/* </React.StrictMode> */}
   </Provider>
 );
