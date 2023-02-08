@@ -16,6 +16,7 @@ import HomePage from './components/home';
 import NotFound from './components/not-found';
 import ViewSelectedRandomRecipe from './containers/viewSelectedRandomRecipe';
 import ViewSelectedSearchRecipe from './containers/viewSelectedSearchRecipe';
+import IngredientSearch from './components/ingredientSearch';
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
@@ -33,6 +34,7 @@ root.render(
               <Route exact path="/random" element={<RandomResults />} />
               <Route path="random/:id" element={<ViewSelectedRandomRecipe />} />
               <Route path="*" element={<NotFound />} />
+              <Route path="ingredientsearch" element={<IngredientSearch />} />
             </Routes>
           </Container>
         </BrowserRouter>
