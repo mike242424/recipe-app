@@ -1,7 +1,6 @@
 import axios from "axios";
 
 export const FETCH_RECIPE = "FETCH_RECIPE";
-export const FETCH_RECIPE_INFO = "FETCH_RECIPE_INFO";
 export const FETCH_RANDOM_RECIPE = "FETCH_RANDOM_RECIPE";
 
 export const fetchRecipe = foodItem => {
