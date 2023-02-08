@@ -3,8 +3,8 @@ import { useParams } from "react-router-dom";
 
 import _ from 'lodash';
 
-const ViewSelectedSearchRecipe = () => {
-  const recipeData = useSelector(state => state.recipeData);
+const ViewSelectedIngredientSearchRecipe = () => {
+  const recipeData = useSelector(state => state.ingredientRecipeData);
   const { id } = useParams();
   const isRecipe = r => r.id === Number(id);
   const recipe = recipeData.results.find(isRecipe);
@@ -56,4 +56,4 @@ const ViewSelectedSearchRecipe = () => {
   );
 };
 
-export default ViewSelectedSearchRecipe;
+export default ViewSelectedIngredientSearchRecipe;

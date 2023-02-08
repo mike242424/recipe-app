@@ -15,7 +15,7 @@ const ingredientsSchema = yup.object({
   ingredient5: yup.string().max(20),
 })
 
-console.log(ingredientsSchema);
+
 const IngredientSearch = (props) => {
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(ingredientsSchema)
@@ -26,54 +26,58 @@ const IngredientSearch = (props) => {
   const handleFormSubmit = (data) => {
     const ingredients = Object.values(data);
     const namedIngredients = ingredients.filter(item => item).join();
-    dispatch(fetchRecipeByIngredient(namedIngredients));
+    const ingredientsInputValue = namedIngredients.split(" ").join("");
+    console.log(ingredientsInputValue)
+    dispatch(fetchRecipeByIngredient(ingredientsInputValue));
     reset();
   }
 
   return (
     <>
-    <Container className=" text-center m-4">
+    <Container className="text-center m-4">
       <Row>
         <h1>What's In Your Refrigerator?</h1>
       </Row>
-      <Row>
+      <Row className="text-center">
         <Form className="d-flex" onSubmit={handleSubmit(handleFormSubmit)}>
-          <Form.Control 
-            className="input-group me-2"
-            type="search" 
-            placeholder="Enter Ingredients Here"
-            {...register("ingredient1")}
-              />
-          {errors.ingredients?.message}
-          <Form.Control 
-            className="input-group me-2"
-            type="search" 
-            placeholder="Enter Ingredients Here"
-            {...register("ingredient2")}
-              />
-          {errors.ingredients?.message}
-          <Form.Control 
-            className="input-group me-2"
-            type="search" 
-            placeholder="Enter Ingredients Here"
-            {...register("ingredient3")}
-              />
-          {errors.ingredients?.message}
-          <Form.Control 
-            className="input-group me-2"
-            type="search" 
-            placeholder="Enter Ingredients Here"
-            {...register("ingredient4")}
-              />
-          {errors.ingredients?.message}
-          <Form.Control 
-            className="input-group me-2"
-            type="search" 
-            placeholder="Enter Ingredients Here"
-            {...register("ingredient5")}
-              />
-          {errors.ingredients?.message}
-          <Button variant="dark" type="submit">Search</Button>
+          <Form.Group className="mb-3">
+            <Form.Control 
+              className="input-group"
+              type="search" 
+              placeholder="Ingredient 1"
+              {...register("ingredient1")}
+                />
+            {errors.ingredients?.message}
+            <Form.Control 
+              className="input-group me-2"
+              type="search" 
+              placeholder="Ingredient 2"
+              {...register("ingredient2")}
+                />
+            {errors.ingredients?.message}
+            <Form.Control 
+              className="input-group me-2"
+              type="search" 
+              placeholder="Enter Ingredients Here"
+              {...register("ingredient3")}
+                />
+            {errors.ingredients?.message}
+            <Form.Control 
+              className="input-group me-2"
+              type="search" 
+              placeholder="Enter Ingredients Here"
+              {...register("ingredient4")}
+                />
+            {errors.ingredients?.message}
+            <Form.Control 
+              className="input-group me-2"
+              type="search" 
+              placeholder="Enter Ingredients Here"
+              {...register("ingredient5")}
+                />
+            {errors.ingredients?.message}
+            <Button variant="dark" type="submit">Search</Button>
+          </Form.Group>
         </Form>
       </Row>
     </Container>

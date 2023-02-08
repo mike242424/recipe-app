@@ -2,7 +2,9 @@ import { useSelector } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../app.css';
 import {  Card, Container, Row, Col } from "react-bootstrap";
-import { LinkContainer } from 'react-router-bootstrap'
+import { LinkContainer } from 'react-router-bootstrap';
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import _ from 'lodash';
 
 
@@ -14,7 +16,7 @@ const IngredientSearchResults = () => {
   const renderRecipes = () => {
     if (!_.isEmpty(recipeData)) {
       return recipeData.results.map((recipe) =>
-      <LinkContainer to={`/search/${recipe.id}`} key={recipe.id}>
+      <LinkContainer to={`/ingredientsearch/${recipe.id}`} key={recipe.id}>
         <Col className="mb-4 md-4 d-flex align-items-stretch">
           <Card className="recipe-card" style={{ width: '18rem' }}>
             {recipe.image ? <Card.Img 
@@ -29,9 +31,9 @@ const IngredientSearchResults = () => {
           </Card>
         </Col>
       </LinkContainer>
-      )
-    }  
-  };
+      ) 
+    }
+  }
 
   return (
     <>
@@ -43,5 +45,6 @@ const IngredientSearchResults = () => {
     </>
   )
 }
+
  
 export default IngredientSearchResults;
