@@ -8,7 +8,6 @@ const ViewSelectedIngredientSearchRecipe = () => {
   const { id } = useParams();
   const isRecipe = r => r.id === Number(id);
   const recipe = recipeData.results.find(isRecipe);
-  // console.log(recipe);
 
   const renderIngredients = () => {
     if (!_.isEmpty(recipe)) {
