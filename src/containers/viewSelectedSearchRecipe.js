@@ -5,7 +5,6 @@ import _ from 'lodash';
 
 const ViewSelectedSearchRecipe = () => {
   const recipeData = useSelector(state => state.recipeData);
-  // console.log(recipeData);
   const { id } = useParams();
   const isRecipe = r => r.id === Number(id);
   const recipe = recipeData.results.find(isRecipe);
@@ -14,7 +13,7 @@ const ViewSelectedSearchRecipe = () => {
   const renderIngredients = () => {
     if (!_.isEmpty(recipe)) {
       return recipe.extendedIngredients.map((item, index) =>
-        <li key={index}>{`${item.measures.us.amount} ${item.measures.us.unitShort} ${item.originalName}`}</li>
+        <li className="m-3" key={index}>{`${item.measures.us.amount} ${item.measures.us.unitShort} ${item.originalName}`}</li>
       )
     }  
   }
@@ -35,7 +34,7 @@ const ViewSelectedSearchRecipe = () => {
         <div className="col-8 offset-2">
           <br />
           <br />
-          <h1 className="pt-0 pb-3 text-center">{recipe.title}</h1>
+          <h1 className="pt-0 pb-3 text-center text-success"><strong>{recipe.title}</strong></h1>
           <div className="text-center">
             <img
               className="mb-4"
@@ -45,11 +44,11 @@ const ViewSelectedSearchRecipe = () => {
           </div>
           <p className="text-center"><strong>Servings: </strong>{recipe.servings}</p>
           <p className="text-center"><strong>Cooking Time: </strong>{recipe.readyInMinutes} minutes</p>
-          <h4 className="mb-4 text-center" style={{textDecoration: "underline"}}><strong>Ingredients: </strong></h4>
-          <ul>
+          <h4 className="mb-4 text-center text-success" style={{textDecoration: "underline"}}><strong>Ingredients: </strong></h4>
+          <ul className="p-0">
             {renderIngredients()}
           </ul>
-          <h4 className="mb-4 text-center" style={{textDecoration: "underline"}}><strong>Instructions: </strong></h4>
+          <h4 className="mb-4 text-center text-success" style={{textDecoration: "underline"}}><strong>Instructions: </strong></h4>
           {renderSteps()}
         </div>
       </div>
