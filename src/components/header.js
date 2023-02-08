@@ -9,7 +9,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRoad, faUtensils } from '@fortawesome/free-solid-svg-icons'
 import '../app.css';
 
-
 const Header = () => {
   const [foodItem, setFoodItem] = useState("");
   const dispatch = useDispatch();

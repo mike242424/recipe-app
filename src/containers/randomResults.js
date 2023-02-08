@@ -5,9 +5,6 @@ import {  Card, Container, Row, Col } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap';
 import _ from 'lodash';
 
-
-// import { useEffect, useState } from "react";
-
 const RandomResults = () => {
   const randomRecipeData = useSelector(state => state.randomRecipeData);
   
