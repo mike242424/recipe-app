@@ -21,6 +21,7 @@ import IngredientSearch from './containers/IngredientSearch';
 import ViewSelectedIngredientSearchRecipe from './containers/ViewSelectedIngredientSearchRecipe';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
+import IngredientSearchResults from './containers/IngredientSearchResults';
 
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
@@ -40,7 +41,8 @@ root.render(
               <Route path="/random/:id" element={<ViewSelectedRandomRecipe />} />
               <Route path="*" element={<NotFound />} />
               <Route path="/ingredientsearch" element={<IngredientSearch />} />
-              <Route path="/ingredientsearch/:id" element={ViewSelectedIngredientSearchRecipe} />
+              <Route path="/ingredientsearch/results" element={<IngredientSearchResults />} />
+              <Route path="/ingredientsearch/:id" element={<ViewSelectedIngredientSearchRecipe />} />
             </Routes>
           </Container>
         </BrowserRouter>

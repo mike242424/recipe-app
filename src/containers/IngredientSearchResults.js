@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../app.css';
-import {  Card, Container, Row, Col } from "react-bootstrap";
+import {  Card, Container, Row, Col, Button } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
@@ -14,7 +14,7 @@ const IngredientSearchResults = () => {
   console.log(recipeData);
 
   const renderRecipes = () => {
-    if (!_.isEmpty(recipeData)) {
+    if (!_.isEmpty(recipeData) && recipeData.totalResults !== 0) {
       return recipeData.results.map((recipe) =>
       <LinkContainer to={`/ingredientsearch/${recipe.id}`} key={recipe.id}>
         <Col className="mb-4 md-4 d-flex align-items-stretch">
@@ -32,6 +32,18 @@ const IngredientSearchResults = () => {
         </Col>
       </LinkContainer>
       ) 
+    } else {
+      return (
+        <Card>
+          <Card.Body className="text-center">
+          <Card.Text><FontAwesomeIcon className="fa-5x" icon={ faUserSecret } /></Card.Text>
+          <Card.Text>We were unable to find a recipe that incorporates all of the ingredients provided.  Please try again.</Card.Text>
+          <LinkContainer to="/ingredientsearch">
+            <Button variant="dark">Try Again</Button>
+          </LinkContainer>
+          </Card.Body>
+        </Card>
+      )
     }
   }
 
