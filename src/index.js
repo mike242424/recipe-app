@@ -9,19 +9,19 @@ import { createStore, applyMiddleware } from 'redux';
 
 import reducers from './reducers';
 
-import Header from './containers/Header';
-import RandomResults from './containers/RandomResults';
-import SearchResults from './containers/SearchResults';
-import HomePage from './components/Home';
-import NotFound from './components/NotFound';
-import ViewSelectedRandomRecipe from './containers/ViewSelectedRandomRecipe';
-import ViewSelectedSearchRecipe from './containers/ViewSelectedSearchRecipe';
+import Header from './containers/header';
+import RandomResults from './containers/randomResults';
+import SearchResults from './containers/searchResults';
+import HomePage from './components/home';
+import NotFound from './components/notFound';
+import ViewSelectedRandomRecipe from './containers/viewSelectedRandomRecipe';
+import ViewSelectedSearchRecipe from './containers/viewSelectedSearchRecipe';
 
-import IngredientSearch from './containers/IngredientSearch';
-import ViewSelectedIngredientSearchRecipe from './containers/ViewSelectedIngredientSearchRecipe';
+import IngredientSearch from './containers/ingredientSearch';
+import ViewSelectedIngredientSearchRecipe from './containers/viewSelectedIngredientSearchRecipe';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
-import IngredientSearchResults from './containers/IngredientSearchResults';
+import IngredientSearchResults from './containers/ingredientSearchResults';
 
 
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);

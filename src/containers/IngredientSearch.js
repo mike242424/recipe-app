@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { useDispatch } from "react-redux";
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
-import { fetchRecipeByIngredient } from "../actions";
+import { fetchRecipeByIngredient, setLoading } from "../actions";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 
@@ -30,10 +30,10 @@ const IngredientSearch = (props) => {
     const ingredientsInputValue = namedIngredients.split(" ").join("");
     console.log(ingredientsInputValue)
     dispatch(fetchRecipeByIngredient(ingredientsInputValue));
-    navigate("/ingredientsearch/results");
     reset();
+    navigate("/ingredientsearch/results");
   }
-
+ 
   return (
     <>
     <Container className="text-center m-4">
