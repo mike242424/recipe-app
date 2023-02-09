@@ -21,12 +21,12 @@ const Header = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    navigate("/search");
     dispatch(setLoading(true));
     dispatch(fetchRecipe(foodItem));
     setTimeout(() => {
-      dispatch(setLoading(false));
       setFoodItem("");
-      navigate("/search");
+      dispatch(setLoading(false));
     }, 2000);
   }
 

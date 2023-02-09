@@ -87,4 +87,4 @@ const IngredientSearch = (props) => {
   )
 }
 
-export default IngredientSearch
+export default IngredientSearch;

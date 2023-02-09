@@ -20,7 +20,7 @@ const IngredientSearchResults = () => {
       setIsLoading(false)
     }
   }
-  // console.log(recipeData);
+  console.log(recipeData);
 
   const renderRecipes = () => {
     if (isLoading) {
