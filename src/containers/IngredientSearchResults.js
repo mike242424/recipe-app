@@ -6,15 +6,26 @@ import { LinkContainer } from 'react-router-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import _ from 'lodash';
-
+import { PacmanLoader } from "react-spinners";
+import { useState } from "react";
 
 const IngredientSearchResults = () => {
+  const [ isLoading, setIsLoading ] = useState(false);
   const recipeData = useSelector(state => state.ingredientRecipeData);
 
-  console.log(recipeData);
+  const toggleIsLoading = () => {
+    if (_.isEmpty(recipeData)) {
+      setIsLoading(true)
+    } else {
+      setIsLoading(false)
+    }
+  }
+  // console.log(recipeData);
 
   const renderRecipes = () => {
-    if (!_.isEmpty(recipeData) && recipeData.totalResults !== 0) {
+    if (isLoading) {
+      return <PacmanLoader color="green" />
+    } else if (!_.isEmpty(recipeData) && recipeData.totalResults !== 0) {
       return recipeData.results.map((recipe) =>
       <LinkContainer to={`/ingredientsearch/${recipe.id}`} key={recipe.id}>
         <Col className="mb-4 md-4 d-flex align-items-stretch">

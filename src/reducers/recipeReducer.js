@@ -1,6 +1,11 @@
-import { FETCH_RECIPE, FETCH_RANDOM_RECIPE, FETCH_RECIPE_BY_INGREDIENT } from '../actions'; 
+import { FETCH_RECIPE, FETCH_RANDOM_RECIPE, FETCH_RECIPE_BY_INGREDIENT, TOGGLE_IS_LOADING } from '../actions'; 
 
-export const recipeReducer = (state = null, action) => {
+const initialState = {
+  data: {},
+  isLoading: false
+}
+
+export const recipeReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_RECIPE: 
       return state = action.payload.data;
@@ -9,7 +14,7 @@ export const recipeReducer = (state = null, action) => {
   }
 }
 
-export const randomRecipeReducer = (state = null, action) => {
+export const randomRecipeReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_RANDOM_RECIPE: 
       return state = action.payload.data;
@@ -18,7 +23,7 @@ export const randomRecipeReducer = (state = null, action) => {
   }
 }
 
-export const recipeIngredientSearchReducer = (state = null, action) => {
+export const recipeIngredientSearchReducer = (state = initialState, action) => {
   switch (action.type) {
     case FETCH_RECIPE_BY_INGREDIENT:
       return state = action.payload.data;
@@ -26,3 +31,14 @@ export const recipeIngredientSearchReducer = (state = null, action) => {
       return state;
   }
 }
+
+// export const toggleIsLoadingReducer = (state = initialState, action) => {
+//   switch (action.type) {
+//     case TOGGLE_IS_LOADING:
+//       return state = {
+//         isLoading: action.payload
+//       }
+//     default:
+//       return state;
+//   }
+// }
