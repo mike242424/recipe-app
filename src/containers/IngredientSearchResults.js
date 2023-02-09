@@ -23,7 +23,6 @@ const IngredientSearchResults = () => {
     }, 2000);
   }, [recipeData]);
   
-  
   const renderRecipes = () => {
     if (!_.isEmpty(recipeData) && recipeData.totalResults !== 0) {
       return recipeData.results.map((recipe) =>

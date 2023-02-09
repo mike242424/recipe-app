@@ -8,7 +8,6 @@ import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRoad, faUtensils } from '@fortawesome/free-solid-svg-icons'
 import '../app.css';
-import { LinkContainer } from "react-router-bootstrap";
 
 const Header = () => {
   const [foodItem, setFoodItem] = useState("");
@@ -21,12 +20,12 @@ const Header = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    navigate("/search");
     dispatch(setLoading(true));
     dispatch(fetchRecipe(foodItem));
     setTimeout(() => {
-      dispatch(setLoading(false));
       setFoodItem("");
-      navigate("/search");
+      dispatch(setLoading(false));
     }, 2000);
   }
 
