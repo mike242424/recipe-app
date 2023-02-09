@@ -1,4 +1,4 @@
-import { FETCH_RECIPE, FETCH_RANDOM_RECIPE, FETCH_RECIPE_BY_INGREDIENT, TOGGLE_IS_LOADING } from '../actions'; 
+import { FETCH_RECIPE, FETCH_RANDOM_RECIPE, FETCH_RECIPE_BY_INGREDIENT, SET_LOADER } from '../actions'; 
 
 const initialState = {
   data: {},
@@ -32,13 +32,11 @@ export const recipeIngredientSearchReducer = (state = initialState, action) => {
   }
 }
 
-// export const toggleIsLoadingReducer = (state = initialState, action) => {
-//   switch (action.type) {
-//     case TOGGLE_IS_LOADING:
-//       return state = {
-//         isLoading: action.payload
-//       }
-//     default:
-//       return state;
-//   }
-// }
+export const loadingReducer = (state = false, action) => {
+  switch (action.type) {
+    case SET_LOADER:
+      return state = action.payload;
+    default: 
+      return state;
+  }
+}

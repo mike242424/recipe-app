@@ -14,7 +14,7 @@ const ViewSelectedRandomRecipe = () => {
       return recipe.extendedIngredients.map((item, index) =>
           <li className="m-3" key={index}>{`${item.measures.us.amount} ${item.measures.us.unitShort} ${item.originalName}`}</li>
       )
-    }  
+    } 
   }
   
   const renderSteps = () => { 
@@ -53,6 +53,6 @@ const ViewSelectedRandomRecipe = () => {
       </div>
     </div>
   )
-  }
+}
 
-  export default ViewSelectedRandomRecipe
+export default ViewSelectedRandomRecipe

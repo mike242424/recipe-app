@@ -5,10 +5,12 @@ import {  Card, Container, Row, Col } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap'
 import _ from 'lodash';
 import { useNavigate } from "react-router-dom";
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 
 const SearchResults = () => {
   const recipeData = useSelector(state => state.recipeData);
+  const setLoading = useSelector(state => state.setLoading);
   const navigate = useNavigate();
 
   const renderRecipes = () => {
@@ -42,8 +44,8 @@ const SearchResults = () => {
     <>
       <Container className="show-random-recipe text-center m-4">
         <Row className="show-recipe">
-          {renderRecipes()}
-          </Row>
+          {setLoading ? <PacmanLoader size='100px' color='#14A44D'/> : renderRecipes()}
+        </Row>
       </Container>
     </>
   )
