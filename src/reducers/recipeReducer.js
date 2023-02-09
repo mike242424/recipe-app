@@ -1,11 +1,7 @@
 import { FETCH_RECIPE, FETCH_RANDOM_RECIPE, FETCH_RECIPE_BY_INGREDIENT, SET_LOADER } from '../actions'; 
 
-const initialState = {
-  data: {},
-  isLoading: false
-}
 
-export const recipeReducer = (state = initialState, action) => {
+export const recipeReducer = (state = null, action) => {
   switch (action.type) {
     case FETCH_RECIPE: 
       return state = action.payload.data;
@@ -14,7 +10,7 @@ export const recipeReducer = (state = initialState, action) => {
   }
 }
 
-export const randomRecipeReducer = (state = initialState, action) => {
+export const randomRecipeReducer = (state = null, action) => {
   switch (action.type) {
     case FETCH_RANDOM_RECIPE: 
       return state = action.payload.data;
@@ -23,7 +19,7 @@ export const randomRecipeReducer = (state = initialState, action) => {
   }
 }
 
-export const recipeIngredientSearchReducer = (state = initialState, action) => {
+export const recipeIngredientSearchReducer = (state = null, action) => {
   switch (action.type) {
     case FETCH_RECIPE_BY_INGREDIENT:
       return state = action.payload.data;

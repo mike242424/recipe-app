@@ -1,4 +1,4 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../app.css';
 import {  Card, Container, Row, Col, Button } from "react-bootstrap";
@@ -7,25 +7,25 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserSecret } from '@fortawesome/free-solid-svg-icons'
 import _ from 'lodash';
 import { PacmanLoader } from "react-spinners";
-import { useState } from "react";
+import { useEffect } from "react";
+import { setLoading } from "../actions";
 
 const IngredientSearchResults = () => {
-  const [ isLoading, setIsLoading ] = useState(false);
   const recipeData = useSelector(state => state.ingredientRecipeData);
+  const loading = useSelector(state => state.setLoading);
+  const dispatch = useDispatch();
 
-  const toggleIsLoading = () => {
-    if (_.isEmpty(recipeData)) {
-      setIsLoading(true)
-    } else {
-      setIsLoading(false)
-    }
-  }
-  // console.log(recipeData);
-
+  console.log(recipeData)
+  useEffect(() => {
+    dispatch(setLoading(true));
+    setTimeout(() => {
+      dispatch(setLoading(false));
+    }, 2000);
+  }, [recipeData]);
+  
+  
   const renderRecipes = () => {
-    if (isLoading) {
-      return <PacmanLoader color="green" />
-    } else if (!_.isEmpty(recipeData) && recipeData.totalResults !== 0) {
+    if (!_.isEmpty(recipeData) && recipeData.totalResults !== 0) {
       return recipeData.results.map((recipe) =>
       <LinkContainer to={`/ingredientsearch/${recipe.id}`} key={recipe.id}>
         <Col className="mb-4 md-4 d-flex align-items-stretch">
@@ -62,11 +62,12 @@ const IngredientSearchResults = () => {
     <>
       <Container className="show-random-recipe text-center m-4">
         <Row className="show-recipe">
-          {renderRecipes()}
+          {loading ? <PacmanLoader size='100px' color='#14A44D'/> : renderRecipes()}
           </Row>
       </Container>
     </>
   )
 }
+
 
 export default IngredientSearchResults;
