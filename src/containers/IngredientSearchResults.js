@@ -46,5 +46,4 @@ const IngredientSearchResults = () => {
   )
 }
 
- 
 export default IngredientSearchResults;

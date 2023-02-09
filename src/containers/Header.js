@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css';
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import  { fetchRandomRecipe } from "../actions";
-import { fetchRecipe } from "../actions";
+import { fetchRecipe, setLoading } from "../actions";
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRoad, faUtensils } from '@fortawesome/free-solid-svg-icons'
@@ -21,14 +21,22 @@ const Header = () => {
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
+    dispatch(setLoading(true));
     dispatch(fetchRecipe(foodItem));
-    setFoodItem("");
-    navigate("/search");
+    setTimeout(() => {
+      dispatch(setLoading(false));
+      setFoodItem("");
+      navigate("/search");
+    }, 2000);
   }
 
   const handleClick = () => {
-    dispatch(fetchRandomRecipe())
+    dispatch(setLoading(true));
+    dispatch(fetchRandomRecipe());
     navigate("/random");
+    setTimeout(() => {
+      dispatch(setLoading(false));
+    }, 2000);
   }
 
   return (

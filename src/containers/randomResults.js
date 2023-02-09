@@ -4,9 +4,11 @@ import '../app.css';
 import {  Card, Container, Row, Col } from "react-bootstrap";
 import { LinkContainer } from 'react-router-bootstrap';
 import _ from 'lodash';
+import PacmanLoader from "react-spinners/PacmanLoader";
 
 const RandomResults = () => {
   const randomRecipeData = useSelector(state => state.randomRecipeData);
+  const setLoading = useSelector(state => state.setLoading);
   
   const renderRandomRecipes = () => {
     if (!_.isEmpty(randomRecipeData)) {
@@ -34,7 +36,7 @@ const RandomResults = () => {
     <>
       <Container className="show-random-recipe text-center m-4">
         <Row className="show-recipe">
-          {renderRandomRecipes()}
+        {setLoading ? <PacmanLoader size='100px' color='#14A44D'/> : renderRandomRecipes()}
           </Row>
       </Container>
     </>

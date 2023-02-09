@@ -3,6 +3,7 @@ import axios from "axios";
 export const FETCH_RECIPE = "FETCH_RECIPE";
 export const FETCH_RANDOM_RECIPE = "FETCH_RANDOM_RECIPE";
 export const FETCH_RECIPE_BY_INGREDIENT = "FETCH_RECIPE_BY_INGREDIENT";
+export const SET_LOADER = 'SET_LOADER';
 
 export const fetchRecipe = foodItem => {
   const API_KEY = process.env.REACT_APP_MIKE_SPOON_API_KEY
@@ -45,3 +46,10 @@ export const fetchRecipeByIngredient = ingredients => {
     payload: request
   }
 };
+
+export const setLoading = (boolean) => {
+  return {
+      type : SET_LOADER,
+      payload : boolean
+  }
+}
