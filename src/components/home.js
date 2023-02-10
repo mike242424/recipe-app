@@ -1,8 +1,8 @@
 import { Container, Row } from 'react-bootstrap';
 
+// hope page component
 const HomePage = () => {
   return (
-
     <Container className="text-center">
       <Row>
       <div className="jumbotron mt-2">

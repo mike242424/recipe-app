@@ -10,14 +10,17 @@ import { faRoad, faUtensils } from '@fortawesome/free-solid-svg-icons'
 import '../app.css';
 
 const Header = () => {
+  // component that renders navbar
   const [foodItem, setFoodItem] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  // retrieves users query in input and puts into local state
   const handleInputChange = (e) => {
     setFoodItem(e.target.value);
   }
 
+  // component that dispatches query results to the redux store
   const handleFormSubmit = (e) => {
     e.preventDefault();
     navigate("/search");
@@ -29,6 +32,7 @@ const Header = () => {
     }, 2000);
   }
 
+  // component that dispatches random recipes to the redux store
   const handleClick = () => {
     dispatch(setLoading(true));
     dispatch(fetchRandomRecipe());
@@ -37,7 +41,7 @@ const Header = () => {
       dispatch(setLoading(false));
     }, 2000);
   }
-
+  // navigates to ingredientsearch when clicked
   const handleIngredientSearchClick = () => {
     navigate("/ingredientsearch");
   }

@@ -2,13 +2,14 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
 import _ from 'lodash';
 
-
+// component for rendering individual recipe when clicked on random recipes page
 const ViewSelectedRandomRecipe = () => {
   const randomRecipeData = useSelector(state => state.randomRecipeData);
   const { id } = useParams();
   const isRecipe = r => r.id === Number(id);
   const recipe = randomRecipeData.recipes.find(isRecipe);
 
+  // function to render individual recipe ingredients to the page
   const renderIngredients = () => {
     if (!_.isEmpty(recipe)) {
       return recipe.extendedIngredients.map((item, index) =>
@@ -17,6 +18,7 @@ const ViewSelectedRandomRecipe = () => {
     } 
   }
   
+  // function to render individual recipe steps to the page
   const renderSteps = () => { 
     if (!_.isEmpty(recipe)) {
       return recipe.analyzedInstructions.map(item => {

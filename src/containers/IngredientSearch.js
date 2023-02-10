@@ -1,4 +1,4 @@
-import { Col, Row, Container, Form, Button } from "react-bootstrap";
+import { Row, Container, Form, Button } from "react-bootstrap";
 import 'bootstrap/dist/css/bootstrap.css';
 import { useDispatch } from "react-redux";
 import { useForm } from 'react-hook-form';
@@ -7,6 +7,7 @@ import { fetchRecipeByIngredient } from "../actions";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 
+// Yup form validation
 const ingredientsSchema = yup.object({
   ingredient1: yup.string().required('You must provide at least one item from your refrigerator or pantry').max(20),
   ingredient2: yup.string().max(20),
@@ -16,6 +17,7 @@ const ingredientsSchema = yup.object({
 })
 
 const IngredientSearch = (props) => {
+  // component that renders search by ingredient inputs to the page
   const { register, handleSubmit, reset, formState: { errors } } = useForm({
     resolver: yupResolver(ingredientsSchema)
   });
@@ -24,6 +26,7 @@ const IngredientSearch = (props) => {
   const navigate = useNavigate();
 
   const handleFormSubmit = (data) => {
+    // function that dispatches ingredient results to the redux store
     const ingredients = Object.values(data);
     const namedIngredients = ingredients.filter(item => item).join();
     const ingredientsInputValue = namedIngredients.split(" ").join("");

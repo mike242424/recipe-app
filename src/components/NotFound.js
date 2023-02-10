@@ -1,3 +1,4 @@
+// 404 error page 
 const NotFound = () => {
   return(
     <h1 className="text-center text-success mt-4">404 Page Not Found 😢</h1>

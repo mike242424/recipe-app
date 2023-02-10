@@ -22,8 +22,7 @@ import IngredientSearchResults from './containers/IngredientSearchResults';
 
 import { composeWithDevTools } from 'redux-devtools-extension';
 
-
-
+// adding middleware to the store using react-promise
 const createStoreWithMiddleware = applyMiddleware(promise)(createStore);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

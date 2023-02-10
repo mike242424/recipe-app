@@ -10,14 +10,17 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 
 
 const RandomResults = () => {
+  // component that renders random recipes
   const randomRecipeData = useSelector(state => state.randomRecipeData);
   const setLoading = useSelector(state => state.setLoading);
 
+  // overrides pacman loading spinner styles
   const override: CSSProperties = {
     margin: "100px 200px",
   };
   
   const renderRandomRecipes = () => {
+     // logic for when user input does retrieve recipes from API
     if (!_.isEmpty(randomRecipeData)) {
       return randomRecipeData.recipes.map((recipe) =>
         <LinkContainer to={`/random/${recipe.id}`} key={recipe.id}>
