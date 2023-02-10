@@ -11,10 +11,12 @@ import { useEffect } from "react";
 import { setLoading } from "../actions";
 
 const IngredientSearchResults = () => {
+  // component that renders the recipe results by ingredient
   const recipeData = useSelector(state => state.ingredientRecipeData);
   const loading = useSelector(state => state.setLoading);
   const dispatch = useDispatch();
 
+  // overrides pacman loading spinner styles
   const override: CSSProperties = {
     margin: "100px 200px",
   };
@@ -27,6 +29,7 @@ const IngredientSearchResults = () => {
   }, [recipeData]);
   
   const renderRecipes = () => {
+    // logic for when user input does retrieve recipes from API
     if (!_.isEmpty(recipeData) && recipeData.totalResults !== 0) {
       return recipeData.results.map((recipe) =>
       <LinkContainer to={`/ingredientsearch/${recipe.id}`} key={recipe.id}>
@@ -46,6 +49,7 @@ const IngredientSearchResults = () => {
       </LinkContainer>
       ) 
     } else {
+      // logic for when user input does retrieve recipes from API
       return (
         <Card>
           <Card.Body className="text-center">

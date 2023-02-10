@@ -9,20 +9,25 @@ import PacmanLoader from "react-spinners/PacmanLoader";
 
 
 const SearchResults = () => {
+  // component that renders the recipe query results
   const recipeData = useSelector(state => state.recipeData);
   const setLoading = useSelector(state => state.setLoading);
   const navigate = useNavigate();
 
+  // overrides pacman loading spinner styles
   const override: CSSProperties = {
     margin: "100px 200px",
   };
 
+  // function that renders recipe query results to the page
   const renderRecipes = () => {
+    // error handling if user input doesn't retrieve recipes from API
     if (recipeData && recipeData.results.length === 0) {
       alert('Please select another food item');
       navigate('/');
     }
 
+    // logic for when user input does retrieve recipes from API
     if (!_.isEmpty(recipeData)) {
       return recipeData.results.map((recipe) =>
       <LinkContainer to={`/search/${recipe.id}`} key={recipe.id}>

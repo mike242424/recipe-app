@@ -3,12 +3,14 @@ import { useParams } from "react-router-dom";
 
 import _ from 'lodash';
 
+// component for rendering individual recipe when clicked on the recipe query page
 const ViewSelectedSearchRecipe = () => {
   const recipeData = useSelector(state => state.recipeData);
   const { id } = useParams();
   const isRecipe = r => r.id === Number(id);
   const recipe = recipeData.results.find(isRecipe);
 
+  // function to render individual recipe ingredients to the page
   const renderIngredients = () => {
     if (!_.isEmpty(recipe)) {
       return recipe.extendedIngredients.map((item, index) =>
@@ -17,6 +19,7 @@ const ViewSelectedSearchRecipe = () => {
     }  
   }
   
+  // function to render individual recipe steps to the page
   const renderSteps = () => {
     if (!_.isEmpty(recipe)) {
       return recipe.analyzedInstructions.map(item => {

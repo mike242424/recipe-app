@@ -3,9 +3,9 @@ import axios from "axios";
 export const FETCH_RECIPE = "FETCH_RECIPE";
 export const FETCH_RANDOM_RECIPE = "FETCH_RANDOM_RECIPE";
 export const FETCH_RECIPE_BY_INGREDIENT = "FETCH_RECIPE_BY_INGREDIENT";
-
 export const SET_LOADER = 'SET_LOADER';
 
+// action creator for fetching recipes by query
 export const fetchRecipe = foodItem => {
   const API_KEY = process.env.REACT_APP_MIKE_SPOON_API_KEY
   const request = axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=12&query=${foodItem}&addRecipeInformation=true&fillIngredients=true&instructionsRequired=true`)
@@ -20,6 +20,7 @@ export const fetchRecipe = foodItem => {
   }
 };
 
+// action creator for random recipes
 export const fetchRandomRecipe = () => {
   const API_KEY = process.env.REACT_APP_MIKE_SPOON_API_KEY;
   const request = axios.get(`https://api.spoonacular.com/recipes/random?apiKey=${API_KEY}&number=12`)
@@ -34,6 +35,7 @@ export const fetchRandomRecipe = () => {
   }
 };
 
+// action creator for fetching recipes by ingredients
 export const fetchRecipeByIngredient = ingredients => {
   const API_KEY = process.env.REACT_APP_MIKE_SPOON_API_KEY
   const request = axios.get(`https://api.spoonacular.com/recipes/complexSearch?apiKey=${API_KEY}&number=12&includeIngredients=${ingredients}&addRecipeInformation=true&fillIngredients=true&instructionsRequired=true`)
@@ -48,6 +50,7 @@ export const fetchRecipeByIngredient = ingredients => {
   }
 };
 
+// action creator for the pacman loading spinner
 export const setLoading = (boolean) => {
   return {
       type : SET_LOADER,
