@@ -9,7 +9,7 @@ import { createStore, applyMiddleware } from 'redux';
 
 import reducers from './reducers';
 
-import Header from './containers/Header';
+import NavigationBar from './containers/Navbar';
 import RandomResults from './containers/RandomResults';
 import SearchResults from './containers/SearchResults';
 import HomePage from './components/Home';
@@ -30,7 +30,7 @@ root.render(
   <Provider store={createStoreWithMiddleware(reducers, composeWithDevTools())}>
       {/* <React.StrictMode> */}
         <BrowserRouter>
-          <Header />
+          <NavigationBar />
           <Container>
             <Routes>
               <Route path="/" element={<HomePage />} />

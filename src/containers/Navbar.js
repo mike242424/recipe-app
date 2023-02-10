@@ -9,7 +9,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faRoad, faUtensils } from '@fortawesome/free-solid-svg-icons'
 import '../app.css';
 
-const Header = () => {
+const NavigationBar = () => {
   // component that renders navbar
   const [foodItem, setFoodItem] = useState("");
   const dispatch = useDispatch();
@@ -20,7 +20,7 @@ const Header = () => {
     setFoodItem(e.target.value);
   }
 
-  // component that dispatches query results to the redux store
+  // function that dispatches query results to the redux store on submit
   const handleFormSubmit = (e) => {
     e.preventDefault();
     navigate("/search");
@@ -32,7 +32,7 @@ const Header = () => {
     }, 2000);
   }
 
-  // component that dispatches random recipes to the redux store
+  // function that dispatches random recipes to the redux store on click
   const handleClick = () => {
     dispatch(setLoading(true));
     dispatch(fetchRandomRecipe());
@@ -41,7 +41,7 @@ const Header = () => {
       dispatch(setLoading(false));
     }, 2000);
   }
-  // navigates to ingredientsearch when clicked
+ 
   const handleIngredientSearchClick = () => {
     navigate("/ingredientsearch");
   }
@@ -50,7 +50,7 @@ const Header = () => {
   <Navbar bg="success" variant="dark" static="top">
     <Container>
       <Navbar.Brand href="/">
-        <FontAwesomeIcon icon={faRoad} /> Highway to Flavortown <FontAwesomeIcon icon={faUtensils} />
+        <FontAwesomeIcon icon={faRoad} /> Highway to FlavorTown <FontAwesomeIcon icon={faUtensils} />
       </Navbar.Brand>
       <Nav className="me-auto">
           <Nav.Link onClick={handleClick} className="m-4">Get Random Recipe(s)</Nav.Link>
@@ -60,7 +60,7 @@ const Header = () => {
         <Form.Control 
           className="input-group me-2"
           type="search" 
-          placeholder="Search For A Recipe"
+          placeholder="Recipe Category"
           value={foodItem}
           onChange={handleInputChange}
           required
@@ -72,4 +72,4 @@ const Header = () => {
   )
 };
 
-export default Header;
+export default NavigationBar;
