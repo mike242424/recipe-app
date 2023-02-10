@@ -47,7 +47,7 @@ const NavigationBar = () => {
   }
 
   return (
-  <Navbar bg="success" variant="dark" static="top">
+  <Navbar bg="success" variant="dark" fixed="top">
     <Container>
       <Navbar.Brand href="/">
         <FontAwesomeIcon icon={faRoad} /> Highway to FlavorTown <FontAwesomeIcon icon={faUtensils} />
