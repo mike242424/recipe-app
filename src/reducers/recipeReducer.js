@@ -1,6 +1,5 @@
 import { FETCH_RECIPE, FETCH_RANDOM_RECIPE, FETCH_RECIPE_BY_INGREDIENT, SET_LOADER } from '../actions'; 
 
-// reducer for the fetch recipe query
 export const recipeReducer = (state = null, action) => {
   switch (action.type) {
     case FETCH_RECIPE: 
@@ -10,7 +9,6 @@ export const recipeReducer = (state = null, action) => {
   }
 }
 
-// reducer for random recipes
 export const randomRecipeReducer = (state = null, action) => {
   switch (action.type) {
     case FETCH_RANDOM_RECIPE: 
@@ -20,7 +18,6 @@ export const randomRecipeReducer = (state = null, action) => {
   }
 }
 
-// reducer for fetching recipes by ingredients
 export const recipeIngredientSearchReducer = (state = null, action) => {
   switch (action.type) {
     case FETCH_RECIPE_BY_INGREDIENT:

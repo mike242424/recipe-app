@@ -21,6 +21,7 @@ const IngredientSearchResults = () => {
     margin: "100px 200px",
   };
 
+  // every time the recipeData changes in the store, this function will trigger
   useEffect(() => {
     dispatch(setLoading(true));
     setTimeout(() => {
@@ -49,7 +50,7 @@ const IngredientSearchResults = () => {
       </LinkContainer>
       ) 
     } else {
-      // logic for when user input does retrieve recipes from API
+      // logic for when user input does not receive recipes from API
       return (
         <Card>
           <Card.Body className="text-center">

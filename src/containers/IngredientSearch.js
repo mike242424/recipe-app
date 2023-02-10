@@ -7,7 +7,6 @@ import { fetchRecipeByIngredient } from "../actions";
 import * as yup from "yup";
 import { useNavigate } from "react-router-dom";
 
-// Yup form validation
 const ingredientsSchema = yup.object({
   ingredient1: yup.string().required('You must provide at least one item from your refrigerator or pantry').max(20),
   ingredient2: yup.string().max(20),
