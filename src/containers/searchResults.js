@@ -13,6 +13,10 @@ const SearchResults = () => {
   const setLoading = useSelector(state => state.setLoading);
   const navigate = useNavigate();
 
+  const override: CSSProperties = {
+    margin: "100px 200px",
+  };
+
   const renderRecipes = () => {
     if (recipeData && recipeData.results.length === 0) {
       alert('Please select another food item');
@@ -44,7 +48,12 @@ const SearchResults = () => {
     <>
       <Container className="show-random-recipe text-center m-4">
         <Row className="show-recipe">
-          {setLoading ? <PacmanLoader size='100px' color='#14A44D'/> : renderRecipes()}
+          {setLoading ? 
+              <PacmanLoader 
+               color='#14A44D' 
+               size="150px"
+               cssOverride={override}
+             /> : renderRecipes()}
         </Row>
       </Container>
     </>
