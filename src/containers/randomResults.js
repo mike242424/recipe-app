@@ -1,3 +1,4 @@
+import { CSSProperties } from "react";
 import { useSelector } from "react-redux";
 import 'bootstrap/dist/css/bootstrap.css';
 import '../app.css';
@@ -6,9 +7,15 @@ import { LinkContainer } from 'react-router-bootstrap';
 import _ from 'lodash';
 import PacmanLoader from "react-spinners/PacmanLoader";
 
+
+
 const RandomResults = () => {
   const randomRecipeData = useSelector(state => state.randomRecipeData);
   const setLoading = useSelector(state => state.setLoading);
+
+  const override: CSSProperties = {
+    margin: "100px 200px",
+  };
   
   const renderRandomRecipes = () => {
     if (!_.isEmpty(randomRecipeData)) {
@@ -36,7 +43,12 @@ const RandomResults = () => {
     <>
       <Container className="show-random-recipe text-center m-4">
         <Row className="show-recipe">
-        {setLoading ? <PacmanLoader size='100px' color='#14A44D'/> : renderRandomRecipes()}
+        {setLoading ? 
+          <PacmanLoader 
+            color='#14A44D' 
+            size="150px"
+            cssOverride={override}
+          /> : renderRandomRecipes()}
           </Row>
       </Container>
     </>

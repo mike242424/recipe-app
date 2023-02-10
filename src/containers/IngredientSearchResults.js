@@ -15,7 +15,10 @@ const IngredientSearchResults = () => {
   const loading = useSelector(state => state.setLoading);
   const dispatch = useDispatch();
 
-  console.log(recipeData)
+  const override: CSSProperties = {
+    margin: "100px 200px",
+  };
+
   useEffect(() => {
     dispatch(setLoading(true));
     setTimeout(() => {
@@ -61,12 +64,16 @@ const IngredientSearchResults = () => {
     <>
       <Container className="show-random-recipe text-center m-4">
         <Row className="show-recipe">
-          {loading ? <PacmanLoader size='100px' color='#14A44D'/> : renderRecipes()}
+          {loading ? 
+            <PacmanLoader 
+              color='#14A44D' 
+              size="150px"
+              cssOverride={override}
+            /> : renderRecipes()}
           </Row>
       </Container>
     </>
   )
 }
-
 
 export default IngredientSearchResults;
