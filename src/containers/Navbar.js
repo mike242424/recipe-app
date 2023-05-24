@@ -1,13 +1,13 @@
 import { Navbar, Nav, Container, Form, Button } from "react-bootstrap";
-import 'bootstrap/dist/css/bootstrap.css';
+import "bootstrap/dist/css/bootstrap.css";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import  { fetchRandomRecipe } from "../actions";
+import { fetchRandomRecipe } from "../actions";
 import { fetchRecipe, setLoading } from "../actions";
 import { useNavigate } from "react-router";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faRoad, faUtensils } from '@fortawesome/free-solid-svg-icons'
-import '../app.css';
+import { faRoad, faUtensils } from "@fortawesome/free-solid-svg-icons";
+import "../app.css";
 
 const NavigationBar = () => {
   const [foodItem, setFoodItem] = useState("");
@@ -16,7 +16,7 @@ const NavigationBar = () => {
 
   const handleInputChange = (e) => {
     setFoodItem(e.target.value);
-  }
+  };
 
   const handleFormSubmit = (e) => {
     e.preventDefault();
@@ -27,7 +27,7 @@ const NavigationBar = () => {
       setFoodItem("");
       dispatch(setLoading(false));
     }, 2000);
-  }
+  };
 
   const handleClick = () => {
     dispatch(setLoading(true));
@@ -36,34 +36,41 @@ const NavigationBar = () => {
     setTimeout(() => {
       dispatch(setLoading(false));
     }, 2000);
-  }
- 
+  };
+
   const handleIngredientSearchClick = () => {
     navigate("/ingredientsearch");
-  }
+  };
 
   return (
-    <Navbar bg="success" variant="dark" expand="md" fixed="top">
+    <Navbar bg="success" variant="dark" expand="lg" fixed="top">
       <Container>
         <Navbar.Brand href="/">
-          <FontAwesomeIcon icon={faRoad} /> Highway to FlavorTown <FontAwesomeIcon icon={faUtensils} />
+          <FontAwesomeIcon icon={faRoad} /> Highway to FlavorTown{" "}
+          <FontAwesomeIcon icon={faUtensils} />
         </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link onClick={handleClick} className="m-4">Get Random Recipe(s)</Nav.Link>
-            <Nav.Link onClick={handleIngredientSearchClick} className="m-4">Search by Ingredient(s)</Nav.Link>
+            <Nav.Link onClick={handleClick} className="m-4">
+              Get Random Recipe(s)
+            </Nav.Link>
+            <Nav.Link onClick={handleIngredientSearchClick} className="m-4">
+              Search by Ingredient(s)
+            </Nav.Link>
           </Nav>
           <Form className="d-flex" onSubmit={handleFormSubmit}>
-            <Form.Control 
+            <Form.Control
               className="input-group me-2"
-              type="search" 
+              type="search"
               placeholder="Recipe Category"
               value={foodItem}
               onChange={handleInputChange}
               required
             />
-            <Button variant="light" type="submit">Search</Button>
+            <Button variant="light" type="submit">
+              Search
+            </Button>
           </Form>
         </Navbar.Collapse>
       </Container>
@@ -71,4 +78,4 @@ const NavigationBar = () => {
   );
 };
 
-export default NavigationBar
+export default NavigationBar;

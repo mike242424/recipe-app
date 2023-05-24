@@ -39,3 +39,11 @@
 body {
   padding-top: 100px;
 }
+
+.app-container {
+  transition: margin-top 0.3s ease;
+}
+
+.app-container.collapsed {
+  margin-top: 50px; /* Adjust this value as per your navbar height */
+}

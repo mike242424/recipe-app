@@ -3,7 +3,7 @@ import { Container, Row } from "react-bootstrap";
 // home page component
 const HomePage = () => {
   return (
-    <Container className="text-center mt-5">
+    <Container className="text-center">
       <Row>
         <div className="jumbotron mt-2">
           <h1 className="display-3 text-success">
