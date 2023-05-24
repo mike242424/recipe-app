@@ -10,17 +10,14 @@ import { faRoad, faUtensils } from '@fortawesome/free-solid-svg-icons'
 import '../app.css';
 
 const NavigationBar = () => {
-  // component that renders navbar
   const [foodItem, setFoodItem] = useState("");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
-  // retrieves users query in input and puts into local state
   const handleInputChange = (e) => {
     setFoodItem(e.target.value);
   }
 
-  // function that dispatches query results to the redux store on submit
   const handleFormSubmit = (e) => {
     e.preventDefault();
     navigate("/search");
@@ -32,7 +29,6 @@ const NavigationBar = () => {
     }, 2000);
   }
 
-  // function that dispatches random recipes to the redux store on click
   const handleClick = () => {
     dispatch(setLoading(true));
     dispatch(fetchRandomRecipe());
@@ -47,29 +43,32 @@ const NavigationBar = () => {
   }
 
   return (
-  <Navbar bg="success" variant="dark" fixed="top">
-    <Container>
-      <Navbar.Brand href="/">
-        <FontAwesomeIcon icon={faRoad} /> Highway to FlavorTown <FontAwesomeIcon icon={faUtensils} />
-      </Navbar.Brand>
-      <Nav className="me-auto">
-          <Nav.Link onClick={handleClick} className="m-4">Get Random Recipe(s)</Nav.Link>
-          <Nav.Link onClick={handleIngredientSearchClick} className="m-4">Search by Ingredient(s)</Nav.Link>
-      </Nav>
-      <Form className="d-flex" onSubmit={handleFormSubmit}>
-        <Form.Control 
-          className="input-group me-2"
-          type="search" 
-          placeholder="Recipe Category"
-          value={foodItem}
-          onChange={handleInputChange}
-          required
-        />
-        <Button variant="light" type="submit">Search</Button>
-      </Form>
-    </Container>
-  </Navbar>
-  )
+    <Navbar bg="success" variant="dark" expand="md" fixed="top">
+      <Container>
+        <Navbar.Brand href="/">
+          <FontAwesomeIcon icon={faRoad} /> Highway to FlavorTown <FontAwesomeIcon icon={faUtensils} />
+        </Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
+            <Nav.Link onClick={handleClick} className="m-4">Get Random Recipe(s)</Nav.Link>
+            <Nav.Link onClick={handleIngredientSearchClick} className="m-4">Search by Ingredient(s)</Nav.Link>
+          </Nav>
+          <Form className="d-flex" onSubmit={handleFormSubmit}>
+            <Form.Control 
+              className="input-group me-2"
+              type="search" 
+              placeholder="Recipe Category"
+              value={foodItem}
+              onChange={handleInputChange}
+              required
+            />
+            <Button variant="light" type="submit">Search</Button>
+          </Form>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar>
+  );
 };
 
-export default NavigationBar;
+export default NavigationBar
