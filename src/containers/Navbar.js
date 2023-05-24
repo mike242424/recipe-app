@@ -43,7 +43,7 @@ const NavigationBar = () => {
   };
 
   return (
-    <Navbar bg="success" variant="dark" expand="lg" fixed="top">
+    <Navbar bg="success" variant="dark" expand="lg" fixed="top" className="navbar-style">
       <Container>
         <Navbar.Brand href="/">
           <FontAwesomeIcon icon={faRoad} /> Highway to FlavorTown{" "}

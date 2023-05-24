@@ -16,6 +16,11 @@
   font-family: "Russo One", sans-serif;
 }
 
+.navbar-style {
+  z-index: 100;
+  position: relative;
+}
+
 .blah:focus {
   border-color: green !important;
   box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
