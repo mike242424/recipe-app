@@ -41,14 +41,10 @@
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
 }
 
-body {
-  padding-top: 100px;
-}
-
 .app-container {
   transition: margin-top 0.3s ease;
 }
 
 .app-container.collapsed {
-  margin-top: 50px; /* Adjust this value as per your navbar height */
+  margin-top: 50px;
 }

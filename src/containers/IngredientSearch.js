@@ -47,7 +47,7 @@ const IngredientSearch = (props) => {
 
   return (
     <>
-      <Container className="text-center m-4 mt-5">
+      <Container className="text-center m-4">
         <Row>
           <h1 className="text-success">
             <strong>What's In Your Fridge/Pantry?</strong>

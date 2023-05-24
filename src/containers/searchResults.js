@@ -30,7 +30,7 @@ const SearchResults = () => {
     if (!_.isEmpty(recipeData)) {
       return recipeData.results.map((recipe) => (
         <LinkContainer to={`/search/${recipe.id}`} key={recipe.id}>
-          <Col className="mb-4 mt-4 d-flex align-items-stretch">
+          <Col className="mb-4 d-flex align-items-stretch">
             <Card className="recipe-card" style={{ width: "18rem" }}>
               {recipe.image ? (
                 <Card.Img
@@ -58,7 +58,12 @@ const SearchResults = () => {
       <Container className="show-random-recipe text-center m-4">
         <Row className="show-recipe">
           {setLoading ? (
-            <PacmanLoader color="#14A44D" size="150px" cssOverride={override} />
+            <PacmanLoader
+              className="mt-5"
+              color="#14A44D"
+              size="150px"
+              cssOverride={override}
+            />
           ) : (
             renderRecipes()
           )}

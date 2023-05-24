@@ -5,7 +5,7 @@ const HomePage = () => {
   return (
     <Container className="text-center">
       <Row>
-        <div className="jumbotron mt-5">
+        <div className="jumbotron mt-2">
           <h1 className="display-3 text-success">
             <strong> 👋 Welcome to Highway to FlavorTown!</strong>
           </h1>
